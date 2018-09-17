@@ -57,6 +57,20 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 </div>
 <?php endif; ?>
 
+<!-- flash -->
+<?php if (regionHasContent("flash")) : ?>
+<div class="outer-wrap outer-wrap-flash">
+    <div class="inner-wrap inner-wrap-flash">
+        <div class="row">
+            <div class="wrap-flash">
+                <?php renderRegion("flash") ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+
 <!-- main -->
 <?php if (regionHasContent("main")) : ?>
 <div class="outer-wrap outer-wrap-main">
@@ -65,6 +79,20 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
             <main class="wrap-main">
                 <?php renderRegion("main") ?>
             </main>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+
+<!-- byline  -->
+<?php if (regionHasContent("byline")) : ?>
+<div class="outer-wrap outer-wrap-byline">
+    <div class="inner-wrap inner-wrap-byline">
+        <div class="row">
+            <div class="wrap-byline">
+                <?php renderRegion("byline") ?>
+            </div>
         </div>
     </div>
 </div>

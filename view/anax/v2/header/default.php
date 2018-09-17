@@ -13,5 +13,5 @@ namespace Anax\View;
 
 <div class="header">
     <img class="header-logo" src="<?= asset("img/leaf.jpg") ?>" alt="Logo">
-    HEADER
+    <h1>Annas website in oophp</h1>
 </div>

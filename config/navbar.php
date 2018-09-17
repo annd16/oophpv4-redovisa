@@ -4,22 +4,22 @@
  */
 return [
     [
-        "text" => "Hem",
+        "text" => "Home",
         "url" => "",
         "title" => "Första sidan, börja här.",
     ],
     [
-        "text" => "Redovisning",
+        "text" => "Reports",
         "url" => "redovisning",
         "title" => "Redovisningstexter från kursmomenten.",
     ],
     [
-        "text" => "Om",
+        "text" => "About",
         "url" => "om",
         "title" => "Om denna webbplats.",
     ],
     [
-        "text" => "Lek",
+        "text" => "Play",
         "url" => "lek",
         "title" => "Lek runt och testa att integrera kod i me-sidan.",
     ],

@@ -1,18 +1,20 @@
 ---
 ---
-Om
+About
 =========================
 
-Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/om.md`.
+This website is a part of [oophp](https://dbwebb.se/kurser/oophp).
 
-Denna webbplatsen är en del av kursen [XXX](https://dbwebb.se/kurser/XXX). Uppdatera så att länken går till kursens hemsida på dwebb.se.
+In an earlier course (htmlphp) we learnt procedural programming in PHP and perform CRUD operations in an SQLITE-database.
+IN this course we will advance to programming in PHP according to the object-oriented paradigm and work against an SQL-database.
 
-Några egna kloka ord om kursen?
+<!-- I en tidigare kurs (htmlphp) fick vi lära oss att programmera procedurellt i php och att utföra CRUD-operationer i en SQLITE-databas,
+i denna kurs kommer vi lära oss att programmera i php enligt den objektorienterade paradigmen och att arbeta mot en SQL-databas. -->
 
-En fin och representativ bild för kursen, enligt ditt egna val.
+[FIGURE src=image/teach-code.png?w=300 caption="Programming is fun."]
 
-[FIGURE src=image/car.png?w=300 caption="En fin bil som demobild."]
+<!-- Dbwebb kursrepot på GitHub: [oophp på gitHub](https://github.com/dbwebb-se/oophp). -->
+Dbwebb repo for this course on GitHub: [oophp on gitHub](https://github.com/dbwebb-se/oophp).
 
-Länka till [dbwebb kursrepot på GitHub](https://github.com/dbwebbse/XXX).
-
-Länka till [ditt eget repo för me/redovisa på GitHub](https://github.com/XXX/XXX).
+<!-- Mitt egna repo för denna kurs: [oophpv4-redovisa](https://github.com/annd16/oophpv4-redovisa). -->
+My own repo for this course: [oophpv4-redovisa](https://github.com/annd16/oophpv4-redovisa).

@@ -41,6 +41,18 @@ return [
             ],
         ],
         [
+            "template" => "anax/v2/flash/default",
+            "region" => "flash",
+            "sort" => -1,
+            "data" => null,
+        ],
+        [
+            "template" => "anax/v2/byline/default",
+            "region" => "byline",
+            "sort" => -1,
+            "data" => null,
+        ],
+        [
             "template" => "anax/v2/footer/default",
             "region" => "footer",
             "sort" => -1,
