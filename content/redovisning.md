@@ -37,7 +37,25 @@ Har väl inte haft någon direkt aha-upplevelse i detta kursmoment. Kanske för 
 Kmom02
 -------------------------
 
-Här är redovisningstexten
+####Hur gick det att överföra spelet “Gissa mitt nummer” in i din me-sida?
+
+Trodde att det skulle bli en rätt lätt uppgift men tji fick jag. Mycket berodde det nog på att jag inte varit så noga med att separera html-kod från php-kod i mina spel, så jag blev i princip TVUNGEN att refaktorera mina spel för att inte behöva ha all kod i vyerna. Förutom de redan befintliga Guess-, GuessException- och Sessionklasserna, så har det tillkommit två nya klasser: en formulärsklass (Form) och en resultatsklass (Result). Formulärsklassen har en konstruktor och ett antal metoder för att skapa och rita ut formuläret (som ser lite olika ut beroende på om det är get/post-spelet eller om det är session/session-object-spelet). Resulttatsklassen innehåller endast statiska metoder .Bägge klasserna har jag försökt att göra så allmänna som möjligt och lösa skillnaderna mellan get/post och session/session-object med if/else-satser intuti metoderna. Alla spelen använder sig av samma vy.
+
+Trots min refaktorering så innehåller routerna rätt mycket kod och vyerna innehåller en del logik MEN jag är ändå nöjd med resultatet det är väldigt mycket m
+
+####Berätta om din syn på modellering likt UML jämfört med verktyg som phpDocumentor. Fördelar, nackdelar, användningsområde? Vad tycker du om konceptet make doc?
+
+UML verkar vara bra för att styra upp analys och design fasen i ett projekt och sedan kan man allteftersom modifiera diagrammen om det visar sig behövas.
+
+####Hur känns det att skriva kod utanför och inuti ramverket, ser du fördelar och nackdelar med de olika sätten?  
+
+Fördelen med att skriva kod inuti ramverket borde ju vara att man får tillgång till dess klasser och metoder, interfaces och traits och slipper skriva allt själv, och att man 'tvingas' till att ha en viss struktur på sin kod.
+Nackdelen är väl det kanske inte alltid är helt lätt att sätta sig in i hur ramverket fungerar, och att det är lite mer uppstyrt vad man kan göra och hur man ska göra det.
+Har nog inte utnyttjat ramverket och dess resurser i den omfattning som jag kanske borde gjort än så länge.
+
+####Vilken är din TIL för detta kmom?  
+
+
 
 
 

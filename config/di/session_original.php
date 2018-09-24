@@ -9,8 +9,7 @@ return [
             "active" => defined("ANAX_WITH_SESSION") && ANAX_WITH_SESSION, // true|false
             "shared" => true,
             "callback" => function () {
-                // $session = new \Anax\Session\Session();
-                $session = new \Anna\Guess\Session();
+                $session = new \Anax\Session\Session();
 
                 // Load the configuration files
                 $cfg = $this->get("configuration");
@@ -19,8 +18,7 @@ return [
                 // Set session name
                 $name = $config["config"]["name"] ?? null;
                 if (is_string($name)) {
-                    // $session->name($name);
-                    $session->setName($name);
+                    $session->name($name);
                 }
 
                 $session->start();

@@ -1,0 +1,17 @@
+<!-- Formulär för att gissa ett nummer -->
+<!-- <form class='form1' action="#result" method= <?= $method ?>>
+    <input type="number" name="guessedNumber" value='<?= $guessedNumber ?>' <?= $done === "true" ? "disabled" : "" ?>>
+    <input type="hidden" name="theNumber" value= <?= $guess->getTheNumber() ?>>
+    <input type="hidden" name="done" value='<?= $done ?>'>
+    <input type="hidden" name="noGuessesLeft" value= <?= ($guess->getNoGuessesLeft())-1 ?>>
+    <input class="submit" type="submit" value="Submit guess" <?= $done === "true" ? "disabled" : "" ?> >
+</form> -->
+
+<!-- Fuskknappen -->
+<!-- <form class='form2' action="#result" method= <?= $method ?>>
+    <input type="hidden" name="guessedNumber" value=null>
+    <input type="hidden" name="theNumber" value= <?= $guess->getTheNumber() ?>>
+    <input type="hidden" name="done" value='<?= $done ?>'>
+    <input type="hidden" name="noGuessesLeft" value= <?= ($guess->getNoGuessesLeft())  ?>>
+    <input class="submit" type="submit" name="cheat" value="Cheat" <?= $done === "true" ? "disabled" : "" ?>>
+</form> -->
