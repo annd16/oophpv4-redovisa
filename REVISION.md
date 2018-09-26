@@ -15,4 +15,8 @@ Revision history
 
 ###v2.1.1 (2018-09-26)
 
-* Fourth commit: Publishing kmom02  
+* Fourth commit: Publishing kmom02
+
+###v2.1.2 (2018-09-27)
+
+* Fifth commit: Publishing kmom02, after 'make test'  

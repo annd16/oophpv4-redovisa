@@ -128,7 +128,6 @@ class Session
         $tempValue = $_SESSION[$key];
         unset($_SESSION[$key]);
         return $tempValue;
-
     }
 
     /**

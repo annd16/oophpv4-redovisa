@@ -237,7 +237,7 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
         //
         // ?> <!-- <h1>Session destroyed</h1> -->
 
-    <?php
+        <?php
     }
 
     ?> <!-- <p>The session contains the following data.</p> -->
@@ -279,9 +279,8 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
     <?php if (!isset($_POST['guessedNumber']) && !isset($_POST['cheat'])) { ?>
             <?php $result = "<h4 class='noguessesmade'>No guesses has been made yet!</h4> " .
                 "<h4 class='guessesleft'>Number of guesses left: " . $guess->getNoGuessesLeft(); ?>
-    <?php
-}
-    ?>
+    <?php }
+?>
 
     <?php
 
@@ -430,7 +429,7 @@ $app->router->any(["get", "post"], "gissa/session-object", function () use ($app
         //
         // ?> <!-- <h1>Session destroyed</h1> -->
 
-    <?php
+        <?php
     }
 
     ?> <!-- <p>The session contains the following data.</p> -->
@@ -464,9 +463,8 @@ $app->router->any(["get", "post"], "gissa/session-object", function () use ($app
     <?php if (!isset($_POST['guessedNumber']) && !isset($_POST['cheat'])) { ?>
             <?php $result = "<h4 class='noguessesmade'>No guesses has been made yet!</h4> " .
                 "<h4 class='guessesleft'>Number of guesses left: " .\Anna\Session\Session::get('guess')->getNoGuessesLeft(); ?>
-    <?php
-}
-    ?>
+    <?php }
+?>
 
     <?php
 
