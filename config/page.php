@@ -48,7 +48,7 @@ return [
         ],
         [
             // "template" => "anax/v2/byline/default",
-            "template" => "byline",
+            "template" => "anax/v2/byline/default",
             "region" => "byline",
             "sort" => -1,
             // "data" => null,

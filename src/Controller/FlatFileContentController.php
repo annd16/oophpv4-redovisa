@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * A module for FlatFileContentController class.
+ *
+ * @author  Mos
+ */
+
 namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
@@ -33,7 +39,7 @@ class FlatFileContentController implements ContainerInjectableInterface
 
         $file = is_file($file1) ? $file1 : null;
         $file = is_file($file2) ? $file2 : $file;
-        
+
         if (!$file) {
             return;
         }

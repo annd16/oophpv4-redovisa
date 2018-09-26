@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * A module for Page class.
+ *
+ * @author  Mos
+ */
+
+
 namespace Anax\Page;
 
 use Anax\Commons\ContainerInjectableInterface;

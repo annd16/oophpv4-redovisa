@@ -7,4 +7,8 @@ Revision history
 
 ###v2.0.0 (2018-09-24)
 
-* Second commit: Draft kmom02 
+* Second commit: Draft kmom02
+
+###v2.0.1 (2018-09-26)
+
+* Third commit: Draft kmom02 - almost there...  

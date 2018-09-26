@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * A module for ErrorHandlerController class.
+ *
+ * @author  Mos
+ */
+
+
 namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;

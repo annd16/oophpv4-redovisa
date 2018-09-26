@@ -80,7 +80,10 @@ main h1 {
     background-color: rgb(60, 6, 116);
 }
 
-.guess main.get .navbar {
+.guess main.get .navbar,
+.guess main.post .navbar,
+.guess main.session .navbar,
+.guess main.session-object .navbar {
     box-sizing: border-box;
 
     /* border: 2px solid rgb(5, 5, 5); */
@@ -92,7 +95,10 @@ main h1 {
     padding-left: 4em;
 }
 
-.guess main.get .navbar a {
+.guess main.get .navbar a,
+.guess main.post .navbar a,
+.guess main.session .navbar a,
+.guess main.session-object .navbar a {
     display: inline;
     font-size: 14px;
     padding: 0 0.5em 0.5em;

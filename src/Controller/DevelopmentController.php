@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * A module for DevelopmentController class.
+ *
+ * @author  Mos
+ */
+
+
 namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
@@ -46,6 +53,9 @@ class DevelopmentController implements ContainerInjectableInterface
         }
 
         $page = $this->di->get("page");
+        // Test 180926
+        // $page = $this->di->get("page2");        // Om så här försvinner flash och byline även från 'dev.md-sidan!'
+
         $page->add(
             "anax/v2/dev/{$pages[$path]}",
             [

@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * A module for Session class.
+ *
+ * This is the module containing the Session class.
+ *
+ * @author  Anna
+ */
+
+/**
 * A Session class that starts a session and handles all communication with $_SESSION.
 */
 class Session

@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * A module for Guess class.
+ *
+ * This is the module containing the Guess class.
+ *
+ * @author  Anna
+ */
+
+
 namespace Anna\Guess;
 
 const MAX_NO_GUESSES = 6;
@@ -14,8 +23,14 @@ class Guess
      * Properties
      **********/
 
+     /**
+      * $theNumber - the random number  -
+      */
     private $theNumber;
-    // private $guessedNumber;
+
+    /**
+     * $noGuessesLeft - number of guesses left  -
+     */
     private $noGuessesLeft;
 
     /**********
@@ -43,6 +58,7 @@ class Guess
 
      /**
     * Guess::createTheNumber()
+    *
     * Create a new random number
     *
     * @return void
@@ -55,7 +71,10 @@ class Guess
 
     /**
    * Guess::setNoGuessesLeft()
-   * Set No of guesses left
+   *
+   * Set number of guesses left
+   *
+   * @param integer $noGuessesLeft - number of guesses left
    *
    * @return void
    */
@@ -66,15 +85,15 @@ class Guess
 
     /**
     * Guess::checkIfNull()
-    * Handle the guess that has been made by the player
+    *
+    * Check if value supplied by user is null
     *
     * @param integer $guessedNumber - the guessed number.
     *
-    * @return String
+    * @return boolean
     *
     * @throws GuessExeption
     */
-    // public function makeAGuess($guessedNumber, $theNumber)
     public function checkIfNull($guessedNumber)
     {
 
@@ -90,7 +109,8 @@ class Guess
 
     /**
     * Guess::checkIfOutOfBounds()
-    * Handle the guess that has been made by the player
+    *
+    * Check if value is out of bounds i.e. <1 or >100
     *
     * @param integer $guessedNumber - the guessed number.
     *
@@ -112,14 +132,13 @@ class Guess
 
     /**
     * Guess::checkTheGuess()
+    *
     * Handle the guess that has been made by the player
     *
     * @param integer $guessedNumber - the guessed number.
     *
     * @return String
-    *
     */
-    // public function makeAGuess($guessedNumber, $theNumber)
     public function checkTheGuess($guessedNumber)
     {
         if ($guessedNumber > $this->getTheNumber()) {
@@ -137,27 +156,16 @@ class Guess
     * Get the random number
     *
     * @return integer $this->theNumber
+    *
     */
     public function getTheNumber()
     {
         return $this->theNumber;
     }
 
-
-    // /**
-    // * Guess::getNoGuesses()
-    // * Get the number of guesses made
-    // *
-    // * @return integer
-    // */
-    // public function getNoGuessesMade()
-    // {
-    //     return MAX_NO_GUESSES - $this->noGuessesLeft;
-    // }
-
-
     /**
     * Guess::getNoGuessesLeft()
+    *
     * Get the number of guesses left
     *
     * @return integer
@@ -170,9 +178,12 @@ class Guess
 
     /**
     * Guess::compare()
-    * Compare guessedNumber with the Number
     *
-    * @return boolean
+    * Compare guessedNumber with theNumber
+    *
+    * @param integer $guessedNumber - the guessed number.
+    *
+    * @return string
     */
     public function compare($guessedNumber)
     {
@@ -185,7 +196,7 @@ class Guess
 
     /**
     * Guess::checkNoGuessesLeft()
-    * Check the number of guesses left
+    * Check if number of guesses left is a positive or negative value.
     *
     * @return integer
     */
@@ -198,9 +209,6 @@ class Guess
         }
         return $resCode;
     }
-
-
-
 
 
     // /**

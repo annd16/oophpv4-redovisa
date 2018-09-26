@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * A module for SampleController class.
+ *
+ * @author  Mos
+ */
+
 namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
@@ -147,7 +153,8 @@ class SampleController implements ContainerInjectableInterface
      * deal with type check within the action method and throuw exceptions
      * when the expected type is not met.
      *
-     * @param mixed $value with a default string.
+     * @param string $str - a string.
+     * @param int $int - an integer.
      *
      * @return string
      */

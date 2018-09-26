@@ -10,7 +10,7 @@ return [
             "shared" => true,
             "callback" => function () {
                 // $session = new \Anax\Session\Session();
-                $session = new \Anna\Guess\Session();
+                $session = new \Anna\Session\Session();
 
                 // Load the configuration files
                 $cfg = $this->get("configuration");
