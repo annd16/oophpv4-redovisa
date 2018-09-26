@@ -60,7 +60,7 @@ class Result
                     . "<h4 class='guessesleft'>Number of guesses left: " . $noGuessesLeft . "</h4>";
                 break;
             case "anException":
-                echo "An exception has occured!";
+                // echo "An exception has occured!";
                 $result = "<h3>Caught exception:</h3>" . "<h4>" . $extraMessage . "</h4>" . "<h4 class='guessesleft'>Number of guesses left: " . ($noGuessesLeft > 0 ?  htmlentities($noGuessesLeft) : "none.") . "</h4>";
                 break;
         }

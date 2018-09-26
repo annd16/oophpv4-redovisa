@@ -12,3 +12,7 @@ Revision history
 ###v2.0.1 (2018-09-26)
 
 * Third commit: Draft kmom02 - almost there...  
+
+###v2.1.1 (2018-09-26)
+
+* Fourth commit: Publishing kmom02  

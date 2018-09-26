@@ -41,7 +41,7 @@ $app->router->get("gissa/get", function () use ($app) {
     // // Test 180922
     if (isset($_GET["cheat"])) {
         $resCode = "cheat";
-        echo "resCode = " . $resCode;
+        // echo "resCode = " . $resCode;
         $result = \Anna\Result\Result::getResult($resCode, htmlentities($_GET['guessedNumber']), $guess->getTheNumber(), $guess->getNoGuessesLeft());
         // $result = "<h4 class='guessesleft'>Number of guesses left: " . ($guess->getNoGuessesLeft() > 0 ? $guess->getNoGuessesLeft() : "none.") . "</h4>";
 
@@ -55,13 +55,13 @@ $app->router->get("gissa/get", function () use ($app) {
                 // echo "The number is correct!";
             }
             $resCode = $guess->checkNoGuessesLeft();
-            echo "resCode = " . $resCode;
+            // echo "resCode = " . $resCode;
             $extraMessage = $comparison;
             $result = \Anna\Result\Result::getResult($resCode, htmlentities($_GET['guessedNumber']), $guess->getTheNumber(), $guess->getNoGuessesLeft(), $extraMessage);
         } catch (\Exception $e) {
             // $result = "<h3>Caught exception:</h3>" . "<h4>" . $e->getMessage() . "</h4>" . "<h4 class='guessesleft'>Number of guesses left: " . ($guess->getNoGuessesLeft() > 0 ? $guess->getNoGuessesLeft() : "none.") . "</h4>";
             $resCode = "anException";
-            echo "resCode = " . $resCode;
+            // echo "resCode = " . $resCode;
             $extraMessage = $e->getMessage();
             $result = \Anna\Result\Result::getResult($resCode, htmlentities($_GET['guessedNumber']), $guess->getTheNumber(), $guess->getNoGuessesLeft(), $extraMessage);
             // echo "<br>guess->noGuessesLeft inside catch: " . $guess->noGuessesLeft; // Test
@@ -126,7 +126,7 @@ $app->router->any(["get", "post"], "gissa/post", function () use ($app) {
     // // Test 180922
     if (isset($_POST["cheat"])) {
         $resCode = "cheat";
-        echo "resCode = " . $resCode;
+        // echo "resCode = " . $resCode;
         $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), $guess->getTheNumber(), $guess->getNoGuessesLeft());
         // $result = "<h4 class='guessesleft'>Number of guesses left: " . ($guess->getNoGuessesLeft() > 0 ? $guess->getNoGuessesLeft() : "none.") . "</h4>";
 
@@ -140,13 +140,13 @@ $app->router->any(["get", "post"], "gissa/post", function () use ($app) {
                 // echo "The number is correct!";
             }
             $resCode = $guess->checkNoGuessesLeft();
-            echo "resCode = " . $resCode;
+            // echo "resCode = " . $resCode;
             $extraMessage = $comparison;
             $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), $guess->getTheNumber(), $guess->getNoGuessesLeft(), $extraMessage);
         } catch (\Exception $e) {
             // $result = "<h3>Caught exception:</h3>" . "<h4>" . $e->getMessage() . "</h4>" . "<h4 class='guessesleft'>Number of guesses left: " . ($guess->getNoGuessesLeft() > 0 ? $guess->getNoGuessesLeft() : "none.") . "</h4>";
             $resCode = "anException";
-            echo "resCode = " . $resCode;
+            // echo "resCode = " . $resCode;
             $extraMessage = $e->getMessage();
             $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), $guess->getTheNumber(), $guess->getNoGuessesLeft(), $extraMessage);
             // echo "<br>guess->noGuessesLeft inside catch: " . $guess->noGuessesLeft; // Test
@@ -183,7 +183,6 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
     require __DIR__ . "/../htdocs/guess/config.php";
     // require __DIR__ . "/../../../../../vendor/autoload.php";
 
-
     // // Starts the session and gives it a unique name:
     // $sessionName = substr(preg_replace('/[^a-z\d]/i', '', __DIR__), -30);
     // \Anna\Session\Session::setName($sessionName);
@@ -197,7 +196,6 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
     $mount = "gissa";
 
     // $session = $di->get("session");
-
 
     // // TESTAR MED HEADER REDIRECT VID RESET
     // if (isset($_GET['reset'])) {
@@ -215,15 +213,16 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
         // $app->session = $di->get("session");
         $app->session->destroy($app->session->get("name"));
 
-        ?><h1>Session destroyed</h1>
+        ?>
+        <!-- <h1>Session destroyed</h1>
 
         <p>The session is now destroyed.</p>
 
-        <pre><?= var_dump($app->session) ?></pre>
+        <pre><?= var_dump($app->session) ?></pre> -->
 
         <?php
 
-        echo "\$mount = " . $mount;
+        // echo "\$mount = " . $mount;
         // die();
         // Nedanstående fungerar!
         header("Location: " . \Anax\View\url($mount.'/session'));
@@ -236,21 +235,19 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
 
 
         //
-        // ?><h1>Session destroyed</h1>
+        // ?> <!-- <h1>Session destroyed</h1> -->
 
     <?php
     }
 
-    ?> <p>The session contains the following data.</p>
+    ?> <!-- <p>The session contains the following data.</p> -->
 
-    <pre><?= var_dump($app->session) ?></pre> <?php
+    <!-- <pre><?= var_dump($app->session) ?></pre> -->
 
-    echo "<p>Allt innehåll i arrayen \$_SESSION:<br><pre>" . htmlentities(print_r($_SESSION, 1)) . "</pre>";
+    <?php
 
+    // echo "<p>Allt innehåll i arrayen \$_SESSION:<br><pre>" . htmlentities(print_r($_SESSION, 1)) . "</pre>";
 
-
-
-    // if (!isset($_POST['theNumber'])) {
     if (!isset($_POST['guessedNumber']) && !isset($_POST['cheat'])) {
         // echo("Before the first guess, default parameters 'injected' in the object.<br/>");
         $guess = new \Anna\Guess\Guess();
@@ -271,7 +268,6 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
         // echo "<br/>noGuessesLeft in new Guess: " . $noGuessesLeft;
     } elseif (isset($_POST['guessedNumber']) && !isset($_POST['cheat'])) {
         // echo "After a guess has been made, create a new Guess-object with session parameters:";
-        // $guess = new \Anna\Guess\Guess(htmlentities($guess->getTheNumber()), htmlentities(\Anna\Session\Session::get('noGuessesLeft')));
         $guess = new \Anna\Guess\Guess(htmlentities(\Anna\Session\Session::get('theNumber')), htmlentities(\Anna\Session\Session::get('noGuessesLeft')));
 
         // echo "<br/>noGuessesLeft = " . $guess->getNoGuessesLeft();
@@ -292,20 +288,20 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
     // // Test 180922
     if (isset($_POST["cheat"])) {
         // // ***** Test 180923 för att göra så att programmet inte räknar ner vid om "cheat" : *****
-        echo "\$resCode = " . $resCode;
-        echo "\$resCode !== 'cheat' = " . ($resCode !== 'cheat');
-        echo "!isset(\$theArray['cheat']) = " . (!isset($theArray['cheat']));
+        // echo "\$resCode = " . $resCode;
+        // echo "\$resCode !== 'cheat' = " . ($resCode !== 'cheat');
+        // echo "!isset(\$theArray['cheat']) = " . (!isset($theArray['cheat']));
         $noGuessesLeft = \Anna\Session\Session::get('noGuessesLeft');
         $noGuessesLeft += 1;
         // $guess->setNoGuessesLeft($noGuessesLeft);
         // echo "<br>guess->getNoGuessesLeft() inside try: " . $guess->getNoGuessesLeft();
         \Anna\Session\Session::set('noGuessesLeft', $noGuessesLeft);
-        echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
+        // echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
         // ************* Slut på testet **************
 
 
         $resCode = "cheat";
-        echo "resCode = " . $resCode;
+        // echo "resCode = " . $resCode;
         // $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), $guess->getTheNumber(), \Anna\Session\Session::get('noGuessesLeft'));
         $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), \Anna\Session\Session::get('theNumber'), \Anna\Session\Session::get('noGuessesLeft'));
 
@@ -316,27 +312,16 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
         try {
             $guess->checkIfOutOfBounds(htmlentities($_POST['guessedNumber']));
             $comparison = $guess->checkTheGuess(htmlentities($_POST['guessedNumber']));
-            echo "\$comparison = " . $comparison;
-            echo "(\$_POST['guessedNumber'] = " . ($_POST['guessedNumber']);
-            var_dump($_POST['guessedNumber']);
-            echo "\$_POST['guessedNumber'] === \$guess->getTheNumber() = " . ($_POST['guessedNumber'] === $guess->getTheNumber());
+            // echo "\$comparison = " . $comparison;
+            // echo "(\$_POST['guessedNumber'] = " . ($_POST['guessedNumber']);
+            // var_dump($_POST['guessedNumber']);
+            // echo "\$_POST['guessedNumber'] === \$guess->getTheNumber() = " . ($_POST['guessedNumber'] === $guess->getTheNumber());
             if ($_POST['guessedNumber'] === $guess->getTheNumber()) {
                 $done = "true";
                 // echo "The number is correct!";
             }
             $resCode = $guess->checkNoGuessesLeft();
-            echo "resCode = " . $resCode;
-
-            // // ***** Test 180923 för att få nedräkningen att fungera: *****
-            // if ($resCode === "aboveZeroLeft") {
-            //     $noGuessesLeft = \Anna\Session\Session::get('noGuessesLeft');
-            //     $noGuessesLeft -= 1;
-            //     $guess->setNoGuessesLeft($noGuessesLeft);
-            //     echo "<br>guess->getNoGuessesLeft() inside try: " . $guess->getNoGuessesLeft();
-            //     \Anna\Session\Session::set('noGuessesLeft', $noGuessesLeft);
-            //     echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
-            // }
-            // // ************* Slut på testet **************
+            // echo "resCode = " . $resCode;
 
             $extraMessage = $comparison;
             $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), $guess->getTheNumber(), $guess->getNoGuessesLeft(), $extraMessage);
@@ -344,10 +329,10 @@ $app->router->any(["get", "post"], "gissa/session", function () use ($app) {
             $noGuessesLeft = \Anna\Session\Session::get('noGuessesLeft');
             $noGuessesLeft += 1;
             \Anna\Session\Session::set('noGuessesLeft', $noGuessesLeft);
-            echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
+            // echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
             // $result = "<h3>Caught exception:</h3>" . "<h4>" . $e->getMessage() . "</h4>" . "<h4 class='guessesleft'>Number of guesses left: " . ($guess->getNoGuessesLeft() > 0 ? $guess->getNoGuessesLeft() : "none.") . "</h4>";
             $resCode = "anException";
-            echo "resCode = " . $resCode;
+            // echo "resCode = " . $resCode;
             $extraMessage = $e->getMessage();
             $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), $guess->getTheNumber(), $guess->getNoGuessesLeft(), $extraMessage);
             // echo "<br>guess->noGuessesLeft inside catch: " . $guess->noGuessesLeft; // Test
@@ -421,15 +406,16 @@ $app->router->any(["get", "post"], "gissa/session-object", function () use ($app
         // $app->session = $di->get("session");
         $app->session->destroy($app->session->get("name"));
 
-        ?><h1>Session destroyed</h1>
+        ?>
+        <!-- <h1>Session destroyed</h1>
 
-        <p>The session is now destroyed.</p>
+        <p>The session is now destroyed.</p> -->
 
-        <pre><?= var_dump($app->session) ?></pre>
+        <!-- <pre><?= var_dump($app->session) ?></pre> -->
 
         <?php
 
-        echo "\$mount = " . $mount;
+        // echo "\$mount = " . $mount;
         // die();
         // Nedanstående fungerar!
         header("Location: " . \Anax\View\url($mount.'/session-object'));
@@ -442,44 +428,20 @@ $app->router->any(["get", "post"], "gissa/session-object", function () use ($app
 
 
         //
-        // ?><h1>Session destroyed</h1>
+        // ?> <!-- <h1>Session destroyed</h1> -->
 
     <?php
     }
 
-    ?> <p>The session contains the following data.</p>
+    ?> <!-- <p>The session contains the following data.</p> -->
 
-    <pre><?= var_dump($app->session) ?></pre> <?php
+    <!-- <pre><?= var_dump($app->session) ?></pre> -->
 
-    echo "<p>Allt innehåll i arrayen \$_SESSION:<br><pre>" . htmlentities(print_r($_SESSION, 1)) . "</pre>";
+    <?php
 
+    // echo "<p>Allt innehåll i arrayen \$_SESSION:<br><pre>" . htmlentities(print_r($_SESSION, 1)) . "</pre>";
 
-
-
-    // if (!isset($_POST['theNumber'])) {
     if (!isset($_POST['guessedNumber']) && !isset($_POST['cheat'])) {
-
-
-        // // *******************************************
-        // // echo("Before the first guess, default parameters 'injected' in the object.<br/>");
-        // $guess = new \Anna\Guess\Guess();
-        // // Store the guess object in session
-        // \Anna\Session\Session::set('guess', $guess);
-        //
-        // // Creating a new random number:
-        // // $guess->createTheNumber();
-        // $theNumber = \Anna\Session\Session::get('guess')->createTheNumber();
-        //
-        // echo "\Anna\Session\Session::get('guess') = ";
-        // var_dump(\Anna\Session\Session::get('guess'));
-        //
-        // // And store it in the session-array:
-        // // $theNumber = $guess->getTheNumber();
-        // // \Anna\Session\Session::set("theNumber", $theNumber);
-        //
-        // $noGuessesLeft = \Anna\Session\Session::get('guess')->getNoGuessesLeft();   // Borde här bli 6
-        // //******************************************
-
         // omtänk 180926
 
         $guess = new \Anna\Guess\Guess();
@@ -488,16 +450,6 @@ $app->router->any(["get", "post"], "gissa/session-object", function () use ($app
 
         // Store the object in session:
         \Anna\Session\Session::set('guess', $guess);
-
-        // Store the number of guesses left in the session array:
-        // \Anna\Session\Session::set("noGuessesLeft", $noGuessesLeft);
-
-
-
-        // echo "<br/>theNumber in new Guess: " . Session::get('theNumber');
-        // echo "<br/>theNumber in new Guess: " . $_SESSION['theNumber'];
-        // echo "<br/>noGuessesLeft in new Guess: " . $_SESSION['noGuessesLeft'];
-        // echo "<br/>noGuessesLeft in new Guess: " . $noGuessesLeft;
     } elseif (isset($_POST['guessedNumber']) && !isset($_POST['cheat'])) {
         // echo "After a guess has been made, create a new Guess-object with session parameters:";
         // $guess = new \Anna\Guess\Guess(htmlentities($guess->getTheNumber()), htmlentities(\Anna\Session\Session::get('noGuessesLeft')));
@@ -521,9 +473,9 @@ $app->router->any(["get", "post"], "gissa/session-object", function () use ($app
     // // Test 180922
     if (isset($_POST["cheat"])) {
         // // ***** Test 180923 för att göra så att programmet inte räknar ner om "cheat" : *****
-        echo "\$resCode = " . $resCode;
-        echo "\$resCode !== 'cheat' = " . ($resCode !== 'cheat');
-        echo "!isset(\$theArray['cheat']) = " . (!isset($theArray['cheat']));
+        // echo "\$resCode = " . $resCode;
+        // echo "\$resCode !== 'cheat' = " . ($resCode !== 'cheat');
+        // echo "!isset(\$theArray['cheat']) = " . (!isset($theArray['cheat']));
         $noGuessesLeft = \Anna\Session\Session::get('guess')->getNoGuessesLeft();
         $noGuessesLeft += 1;
         // $guess->setNoGuessesLeft($noGuessesLeft);
@@ -531,12 +483,12 @@ $app->router->any(["get", "post"], "gissa/session-object", function () use ($app
         // 180926
         // \Anna\Session\Session::set('noGuessesLeft', $noGuessesLeft);
         \Anna\Session\Session::get('guess')->setNoGuessesLeft($noGuessesLeft);
-        echo "\Anna\Session\Session::get('noGuessesLeft') = " . Anna\Session\Session::get('guess')->getNoGuessesLeft();
+        // echo "\Anna\Session\Session::get('noGuessesLeft') = " . Anna\Session\Session::get('guess')->getNoGuessesLeft();
         // ************* Slut på testet **************
 
 
         $resCode = "cheat";
-        echo "resCode = " . $resCode;
+        // echo "resCode = " . $resCode;
         // $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), $guess->getTheNumber(), \Anna\Session\Session::get('noGuessesLeft'));
         // $result = \Anna\Result\Result::getResult($resCode, htmlentities($_POST['guessedNumber']), \Anna\Session\Session::get('guess')->getTheNumber(), \Anna\Session\Session::get('guess')->getNoGuessesLeft());
         $result = \Anna\Result\Result::getResult($resCode, null, \Anna\Session\Session::get('guess')->getTheNumber(), \Anna\Session\Session::get('guess')->getNoGuessesLeft());
@@ -547,69 +499,43 @@ $app->router->any(["get", "post"], "gissa/session-object", function () use ($app
     } else if (isset($_POST['guessedNumber'])) {
         try {
             $guess->checkIfOutOfBounds($_POST['guessedNumber']);
-            echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() after checkIfOutOfBounds = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();
+            // echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() after checkIfOutOfBounds = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();
             $comparison = $guess->checkTheGuess($_POST['guessedNumber']);
-            echo "\$comparison = " . $comparison;
-            echo "(\$_POST['guessedNumber'] = " . ($_POST['guessedNumber']);
-            var_dump($_POST['guessedNumber']);
-            echo "(\Anna\Session\Session::get('guess')->getTheNumber()) = " . (\Anna\Session\Session::get('guess')->getTheNumber());
+            // echo "\$comparison = " . $comparison;
+            // echo "(\$_POST['guessedNumber'] = " . ($_POST['guessedNumber']);
+            // var_dump($_POST['guessedNumber']);
+            // echo "(\Anna\Session\Session::get('guess')->getTheNumber()) = " . (\Anna\Session\Session::get('guess')->getTheNumber());
             // echo "((int)\$_POST['guessedNumber'] == \Anna\Session\Session::get('guess')->getTheNumber()) = " . (((int)$_POST['guessedNumber']) == \Anna\Session\Session::get('guess')->getTheNumber());
             if ($_POST['guessedNumber'] == (\Anna\Session\Session::get('guess')->getTheNumber())) {
                 $done = "true";
-                echo "The number is correct!";
+                // echo "The number is correct!";
             }
             $resCode = \Anna\Session\Session::get('guess')->checkNoGuessesLeft();
-            echo "resCode = " . $resCode;
-
-            // // ***** Test 180923 för att få nedräkningen att fungera: *****
-            // if ($resCode === "aboveZeroLeft") {
-            //     $noGuessesLeft = \Anna\Session\Session::get('noGuessesLeft');
-            //     $noGuessesLeft -= 1;
-            //     $guess->setNoGuessesLeft($noGuessesLeft);
-            //     echo "<br>guess->getNoGuessesLeft() inside try: " . $guess->getNoGuessesLeft();
-            //     \Anna\Session\Session::set('noGuessesLeft', $noGuessesLeft);
-            //     echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
-            // }
-            // // ************* Slut på testet **************
+            // echo "resCode = " . $resCode;
 
             $extraMessage = $comparison;
             $result = \Anna\Result\Result::getResult($resCode, $_POST['guessedNumber'], \Anna\Session\Session::get('guess')->getTheNumber(), \Anna\Session\Session::get('guess')->getNoGuessesLeft(), $extraMessage);
-        // } catch (\Exception $e) {
-        //     $noGuessesLeft = \Anna\Session\Session::get('guess')->getNoGuessesLeft();
-        //     echo ("\$noGuessesLeft = " . $noGuessesLeft);
-        //     $noGuessesLeft += 1;
-        //     echo ("\$noGuessesLeft = " . $noGuessesLeft);
-        //     \Anna\Session\Session::get('guess')->setNoGuessesLeft('noGuessesLeft', $noGuessesLeft);
-        //     echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();
-        //     // $result = "<h3>Caught exception:</h3>" . "<h4>" . $e->getMessage() . "</h4>" . "<h4 class='guessesleft'>Number of guesses left: " . ($guess->getNoGuessesLeft() > 0 ? $guess->getNoGuessesLeft() : "none.") . "</h4>";
-        //     $resCode = "anException";
-        //     echo "resCode = " . $resCode;
-        //     $extraMessage = $e->getMessage();
-        //     $result = \Anna\Result\Result::getResult($resCode, $_POST['guessedNumber'], \Anna\Session\Session::get('guess')->getTheNumber(), \Anna\Session\Session::get('guess')->getNoGuessesLeft(), $extraMessage);
-        //     // echo "<br>guess->noGuessesLeft inside catch: " . $guess->noGuessesLeft; // Test
-        // }
         } catch (\Exception $e) {
-            echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() in the beginning of catch = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();  // Blir rätt här!!!
+            // echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() in the beginning of catch = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();  // Blir rätt här!!!
             $guessObject = \Anna\Session\Session::get('guess');
             $noGuessesLeft = $guessObject->getNoGuessesLeft();
-            echo ("\$noGuessesLeft in catch = " . $noGuessesLeft);
+            // echo ("\$noGuessesLeft in catch = " . $noGuessesLeft);
             $noGuessesLeft += 1;
-            echo ("\$noGuessesLeft in catch = " . $noGuessesLeft);      // Blir rätt här också!!!
+            // echo ("\$noGuessesLeft in catch = " . $noGuessesLeft);      // Blir rätt här också!!!
             // $guessObject->setNoGuessesLeft('noGuessesLeft', $noGuessesLeft);
             $guessObject->setNoGuessesLeft($noGuessesLeft);
-            var_dump($guessObject);
+            // var_dump($guessObject);
             \Anna\Session\Session::set('guess', $guessObject);
-            echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();
+            // echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();
             // $result = "<h3>Caught exception:</h3>" . "<h4>" . $e->getMessage() . "</h4>" . "<h4 class='guessesleft'>Number of guesses left: " . ($guess->getNoGuessesLeft() > 0 ? $guess->getNoGuessesLeft() : "none.") . "</h4>";
             $resCode = "anException";
-            echo "resCode = " . $resCode;
+            // echo "resCode = " . $resCode;
             $extraMessage = $e->getMessage();
             $result = \Anna\Result\Result::getResult($resCode, $_POST['guessedNumber'], \Anna\Session\Session::get('guess')->getTheNumber(), \Anna\Session\Session::get('guess')->getNoGuessesLeft(), $extraMessage);
             // echo "<br>guess->noGuessesLeft inside catch: " . $guess->noGuessesLeft; // Test
         }
     }
 
-    // include __DIR__ . "/../htdocs/gissa/index-get-in.php";
     $data = [
         "class" => "guess",
         "content" => "Hello World in " . __FILE__,

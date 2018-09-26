@@ -46,7 +46,7 @@ class Result
         // }
         switch ($resCode) {
             case "cheat":
-                $result = "<h4 class='guessesleft'>Number of guesses left: " . ($noGuessesLeft > 0 ? $noGuessesLeft : "none.") . "</h4>";
+                $result = "<h4 class='guessesleft'>Number of guesses left: " . ($noGuessesLeft > 0 ? htmlentities($noGuessesLeft) : "none.") . "</h4>";
                 break;
             case "zeroLeft":
                 $result = "<h3>Sorry, you have no guesses left!</h3>" .
@@ -61,7 +61,7 @@ class Result
                 break;
             case "anException":
                 echo "An exception has occured!";
-                $result = "<h3>Caught exception:</h3>" . "<h4>" . $extraMessage . "</h4>" . "<h4 class='guessesleft'>Number of guesses left: " . ($noGuessesLeft > 0 ? $noGuessesLeft : "none.") . "</h4>";
+                $result = "<h3>Caught exception:</h3>" . "<h4>" . $extraMessage . "</h4>" . "<h4 class='guessesleft'>Number of guesses left: " . ($noGuessesLeft > 0 ?  htmlentities($noGuessesLeft) : "none.") . "</h4>";
                 break;
         }
         return $result;

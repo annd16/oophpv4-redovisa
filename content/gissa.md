@@ -11,8 +11,6 @@ Play the game "Guess my number", choose between different implementations below:
 * [Guess-session INSIDE the framework](gissa/session)
 * [Guess-session-object INSIDE the framework](gissa/session-object)
 
-
-
 <!-- Du kan också lägga till vanlig PHP-kod i filer under katalogen htdocs, de kan du köra som vanliga enkla PHP-program. -->
 
-* [Ett demo skript](demo/demo.php)
+<!-- * [Ett demo skript](demo/demo.php) -->

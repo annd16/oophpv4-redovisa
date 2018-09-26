@@ -17,8 +17,10 @@ namespace Anax\View;
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
     <title>Guess my number</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../../view/anax/v2/gissa/css/style_guess.css">
+    <!-- <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../view/anax/v2/gissa/css/style_guess.css"> -->
+    <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/style_guess.css') ?>">
 </head>
 
 <body class="<?= $data['class'] ?>">
@@ -64,46 +66,27 @@ namespace Anax\View;
 
         <?php
 
-        // // ***** Test 180923 för att få nedräkningen att fungera i 'NORMALFALLET' i session-varianterna: *****
-        // if ($resCode === "aboveZeroLeft") {             // Om denna jämförelse så börjar inte nerräkningen efter första gissningen utan andra.
-        // if (($class2 === "session" || $class2 === "session-object") && ($resCode !== "anException" && $resCode !== "cheat")) {
+        // ***** Test 180923 för att få nedräkningen att fungera i 'NORMALFALLET' i session-varianterna: *****
         if ($class2 === "session" || $class2 === "session-object") {
-            echo "\$resCode = " . $resCode;
-            echo "\$resCode !== 'cheat' = " . ($resCode !== 'cheat');
-            echo "!isset(\$theArray['cheat']) = " . (!isset($theArray['cheat']));
-            // if ($resCode !== "anException" && $resCode !== "cheat" && !isset($theArray['cheat'])) {
-            // if (($resCode === "anException" || $resCode === "cheat" || isset($theArray['cheat']))) {
-            //     echo "No countdown!";
-            //     $noGuessesLeft = \Anna\Session\Session::get('noGuessesLeft');
-            //     $noGuessesLeft += 1;
-            //     // $guess->setNoGuessesLeft($noGuessesLeft);
-            //     // echo "<br>guess->getNoGuessesLeft() inside try: " . $guess->getNoGuessesLeft();
-            //     \Anna\Session\Session::set('noGuessesLeft', $noGuessesLeft);
-            //     echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
-            // // }
-            // } else {
+            // echo "\$resCode = " . $resCode;
+            // echo "\$resCode !== 'cheat' = " . ($resCode !== 'cheat');
+            // echo "!isset(\$theArray['cheat']) = " . (!isset($theArray['cheat']));
 
             if ($class2 === "session") {
                 $noGuessesLeft = \Anna\Session\Session::get('noGuessesLeft');
                 $noGuessesLeft -= 1;
                 \Anna\Session\Session::set('noGuessesLeft', $noGuessesLeft);
-                echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
+                // echo "\Anna\Session\Session::get('noGuessesLeft') = " . \Anna\Session\Session::get('noGuessesLeft');
             } elseif ($class2 === "session-object") {
-            // } elseif ($class2 === "session-object" && !$guess->checkIfOutOfBounds($guessedNumber)) {       // test 180926 för att få execption att fungera!
-                // if (null !== \Anna\Session\Session::get('guess')->getNoGuessesLeft()) {
                 $guessObject = \Anna\Session\Session::get('guess');
                 $noGuessesLeft = $guessObject->getNoGuessesLeft();
-                echo ("\$noGuessesLeft inside view = " . $noGuessesLeft);
+                // echo ("\$noGuessesLeft inside view = " . $noGuessesLeft);
                 $noGuessesLeft -= 1;
-            // }
-                echo ("\$noGuessesLeft inside view2 = " . $noGuessesLeft);
+                // echo ("\$noGuessesLeft inside view2 = " . $noGuessesLeft);
                 $guessObject->setNoGuessesLeft($noGuessesLeft);
-                // \Anna\Session\Session::get('guess')->setNoGuessesLeft($noGuessesLeft);
                 \Anna\Session\Session::set('guess', $guessObject);
-                echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();
-                // }
+                // echo "\Anna\Session\Session::get('guess')->getNoGuessesLeft() = " . \Anna\Session\Session::get('guess')->getNoGuessesLeft();
             }
-            // }
         }
         // ************* Slut på testet **************
 
